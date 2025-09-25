@@ -15,17 +15,18 @@ body{
 .container{
     width: 500px;
     background: linear-gradient(#6051e0,#ad79b9);
-    height: 80%;
+    height: 90%;
     padding: 20px;
     position: relative;
 }
 .container .img{
-    width: 140px;
-    position: absolute;
+    width: 200px;
+    position: static;
+    display: block;
+    margin: 0 auto;
     top: -60px;
     right: -90px;
     z-index: -1;
-
 }
 header{
     background-color: #6b5ae4;
