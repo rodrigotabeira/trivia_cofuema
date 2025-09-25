@@ -7,14 +7,15 @@
 }
 body{
     height: 100vh;
-    background:linear-gradient(#584bb4,#6a416b,#685082);
+    background:linear-gradient(#213365,#213365,#213365);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .container{
     width: 500px;
-    background: linear-gradient(#6051e0,#ad79b9);
+    background: linear-gradient(#4b6cc7,#4b6cc7);
+    box-shadow: 3px 3px 5px #2a2929;
     height: 90%;
     padding: 20px;
     position: relative;
@@ -29,7 +30,7 @@ body{
     z-index: -1;
 }
 header{
-    background-color: #6b5ae4;
+    background-color: #213365;
     color: #fff;
     text-align: center;
     font-size: 12px;
@@ -56,9 +57,11 @@ header{
     border: 0;
     text-align: center;
     margin-top: 30px;
+    box-shadow: 3px 3px 5px #2a2929;
 }
 .btn{
-    background-color: #66499e;
+    background-color: #213365;
+    box-shadow: 3px 3px 5px #2a2929;
     color: #fff;
     border: 0;
     padding: 10px;
@@ -72,7 +75,8 @@ header{
     transition: .3s;
 }
 .btn:hover{
-    background-color: #2a2929;
+    background-color: #f4f4f4;
+    color: #213365;
 }
 
 .puntaje, .jugador{
