@@ -155,13 +155,23 @@ header{
     transform: translateX(-50%);
     transition: .3s;
 }
+.categoria .foto-categoria2{
+    width: 80px;
+    position: absolute;
+    left: 50%;
+    top: -45px;
+    transform: translateX(-50%);
+    transition: .3s;
+}
 .categoria:hover{
     box-shadow: 0px 0px 15px #ffe43a;
 }
 .categoria:hover .foto-categoria{
     scale: 1.2;
 }
-
+.categoria:hover .foto-categoria2{
+    scale: 1.2;
+}
 /* PANTALLA DE PREGUNTAS */
 .juego{
     color: #fff;
