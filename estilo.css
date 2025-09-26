@@ -20,6 +20,15 @@ body{
     padding: 20px;
     position: relative;
 }
+.container .img2{
+    width: 150px;
+    position: static;
+    display: block;
+    margin: 0 auto;
+    top: -60px;
+    right: -90px;
+    z-index: -1;
+}
 .container .img{
     width: 200px;
     position: static;
@@ -124,7 +133,7 @@ header{
 
 }
 .categoria{
-    background-color: #60439d;
+    background-color: #213365;
     width: 170px;
     height: 90px;
     border-radius: 15px;
