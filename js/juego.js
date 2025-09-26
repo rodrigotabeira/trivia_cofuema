@@ -183,7 +183,7 @@ const preguntas = [
     {
         id: 19,
         categoria: "compromiso",
-        titulo: "¿Cuáles son las actividades que desarrolla compromiso COFUEMA?",
+        titulo: "¿Cuáles son las actividades que desarrolla Compromiso COFUEMA?",
         opcionA: "Talleres, charlas y eventos comunitarios",
         opcionB: "Excursiones nacionales",
         opcionC: "Rifas y sorteos",
@@ -193,12 +193,12 @@ const preguntas = [
     {
         id: 20,
         categoria: "compromiso",
-        titulo: "¿Cuál es el título de la película de Pixar sobre emociones que viven en la mente de una niña?",
-        opcionA: "Inside Out",
-        opcionB: "Finding Nemo",
-        opcionC: "Up",
-        opcionD: "Ratatouille",
-        correcta: "a"
+        titulo: "¿Qué significa la iniciativa Compromiso COFUEMA?",
+        opcionA: "Una campaña solidaria",
+        opcionB: "Una forma de difundir convenios",
+        opcionC: "Un espacio donde la cooperativa se vincula con la comunidad",
+        opcionD: "Generar un espacio para difundir créditos",
+        correcta: "c"
     }
 ]
 
