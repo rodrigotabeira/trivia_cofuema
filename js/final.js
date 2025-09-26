@@ -12,7 +12,7 @@ txtPuntaje.innerHTML = parseInt(localStorage.getItem("puntaje-total"));
 puntajeFinal.innerHTML = parseInt(localStorage.getItem("puntaje-total")) + " Puntos";
 
 const correctas = parseInt(localStorage.getItem("puntaje-total"))/100;
-const incorrectas = 30 - correctas;
+const incorrectas = 20 - correctas;
 totalAcertadas.innerHTML = correctas;
 totalNoAcertadas.innerHTML = incorrectas;
 

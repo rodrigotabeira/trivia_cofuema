@@ -21,7 +21,7 @@ body{
     position: relative;
 }
 .container .img2{
-    width: 150px;
+    width: 100px;
     position: static;
     display: block;
     margin: 0 auto;

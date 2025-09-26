@@ -41,7 +41,7 @@ const preguntas = [
         correcta:"a"
     },
     {
-        id:4,
+        id:5,
         categoria:"general",
         titulo:"¿En qué año comenzó la Primera Guerra Mundial?",
         opcionA:"1905",
@@ -399,7 +399,7 @@ btnSiguiente.addEventListener("click",()=>{
         const categoriasJugadasLS = JSON.parse(localStorage.getItem("categorias-jugadas"));
        
         console.log(categoriasJugadasLS.length);
-        if(parseInt(categoriasJugadasLS.length) < 6){
+        if(parseInt(categoriasJugadasLS.length) < 4){
             //alert(categoriasJugadasLS.length);
             location.href = "menu.html";
         }else{
