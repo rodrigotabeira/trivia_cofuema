@@ -2,12 +2,12 @@
 const preguntas = [
     {
         id:1,
-        categoria:"general",
-        titulo:"¿Cuál es el planeta más grande de nuestro sistema solar?",
-        opcionA:"Tierra",
-        opcionB:"Marte",
-        opcionC:"Jupiter",
-        opcionD:"Saturno",
+        categoria:"institucional",
+        titulo:"¿En qué año se fundó COFUEMA?",
+        opcionA:"1 de agosto de 1986",
+        opcionB:"18 de diciembre de 1986",
+        opcionC:"1 de diciembre de 1986",
+        opcionD:"21 de setiembre de 1986",
         correcta:"c"
     },
     {
