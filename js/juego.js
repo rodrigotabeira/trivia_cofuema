@@ -3,7 +3,7 @@ const preguntas = [
     {
         id:1,
         categoria:"institucional",
-        titulo:"¿En qué año se fundó COFUEMA?",
+        titulo:"¿En qué fecha se fundó COFUEMA?",
         opcionA:"1 de agosto de 1986",
         opcionB:"18 de diciembre de 1986",
         opcionC:"1 de diciembre de 1986",
@@ -33,7 +33,7 @@ const preguntas = [
     {
         id:4,
         categoria:"institucional",
-        titulo:"¿Qué significan COFUEMA?",
+        titulo:"¿Qué significa COFUEMA?",
         opcionA:"Cooperativa de Funcionarios de la Enseñanza",
         opcionB:"Cooperativa de Funcionarios Públicos",
         opcionC:"Cooperativa de Funcionarios de la Enseñanza de Maldonado",
@@ -43,11 +43,11 @@ const preguntas = [
     {
         id:5,
         categoria:"institucional",
-        titulo:"¿Cómo se llama la biblioteca de COFUEMA (Sede Maldonado)?",
+        titulo:"¿Cómo se llama la biblioteca de COFUEMA?",
         opcionA:"José Pedro Varela",
         opcionB:"Horacio Quiroga",
         opcionC:"Juana de Ibarbourou",
-        opcionD:"Mtra. Elsa Díaz",
+        opcionD:"Elsa Díaz",
         correcta:"d"
     },
     {
@@ -67,7 +67,7 @@ const preguntas = [
         opcionA: "Primer sábado de julio",
         opcionB: "1° de mayo",
         opcionC: "8 de marzo",
-        opcionD: "12 de agosto",
+        opcionD: "Primer sábado de junio",
         correcta: "a"
     },
     {
@@ -93,7 +93,7 @@ const preguntas = [
     {
         id: 10,
         categoria: "cooperativismo",
-        titulo: "¿Cuantos socios titulares integran el Consejo Directivo?",
+        titulo: "Cuántos socios titulares integran el Consejo Directivo?",
         opcionA: "6",
         opcionB: "5",
         opcionC: "8",
@@ -196,7 +196,7 @@ const preguntas = [
         titulo: "¿Qué significa la iniciativa Compromiso COFUEMA?",
         opcionA: "Una campaña solidaria",
         opcionB: "Una forma de difundir convenios",
-        opcionC: "Un espacio donde la cooperativa se vincula con la comunidad",
+        opcionC: "Un espacio donde la cooperativa se vincula con la comunidad educativa",
         opcionD: "Generar un espacio para difundir créditos",
         correcta: "c"
     }
