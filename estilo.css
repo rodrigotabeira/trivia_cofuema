@@ -203,6 +203,13 @@ header {
 .efecto {
     animation: 1s zoom;
 }
+.cronometro {
+    font-size: 20px;
+    color: #ffe43a;
+    text-align: center;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
 
 @keyframes zoom {
     0% {
@@ -341,6 +348,9 @@ header {
     }
 
     .juego .pregunta {
+        font-size: 16px;
+    }
+    .cronometro {
         font-size: 16px;
     }
 

@@ -1,4 +1,6 @@
-//Arreglo que contiene las preguntas
+// =======================
+// DATOS DE PREGUNTAS
+// =======================
 const preguntas = [
     {
         id:1,
@@ -200,34 +202,52 @@ const preguntas = [
         opcionD: "Generar un espacio para difundir créditos",
         correcta: "c"
     }
-]
+];
 
-
-
-
-//tomamos los elementos html
+// =======================
+// ELEMENTOS HTML
+// =======================
 const txtPuntaje = document.querySelector("#puntos");
 const nombre = document.querySelector("#nombre");
+const cronometro = document.getElementById("cronometro");
 
 nombre.innerHTML = localStorage.getItem("nombre");
+
 let numPreguntaActual = 0;
 
-//Recupero el puntaje en caso que ya este jugando
-let puntajeTotal = 0;
-if(!localStorage.getItem("puntaje-total")){
-    puntajeTotal = 0;
-    txtPuntaje.innerHTML = puntajeTotal
-}else{
-    puntajeTotal = parseInt(localStorage.getItem("puntaje-total"));
-    txtPuntaje.innerHTML = puntajeTotal;
+// Recupero puntaje
+let puntajeTotal = parseInt(localStorage.getItem("puntaje-total")) || 0;
+txtPuntaje.innerHTML = puntajeTotal;
+
+// Filtrar preguntas por categoría
+const categoriaActual = localStorage.getItem("categoria-actual");
+const preguntasCategoria = preguntas.filter(p => p.categoria === categoriaActual);
+
+// =======================
+// CRONÓMETRO
+// =======================
+let tiempoRestante = 30;
+let intervaloCrono;
+
+function iniciarCronometro() {
+    clearInterval(intervaloCrono);
+    tiempoRestante = 30;
+    cronometro.textContent = `00:${tiempoRestante < 10 ? "0" : ""}${tiempoRestante}`;
+
+    intervaloCrono = setInterval(() => {
+        tiempoRestante--;
+        cronometro.textContent = `00:${tiempoRestante < 10 ? "0" : ""}${tiempoRestante}`;
+        if (tiempoRestante <= 0) {
+            clearInterval(intervaloCrono);
+            document.getElementById("siguiente").click();
+        }
+    }, 1000);
 }
 
-//cargar las preguntas del tema que eligió
-const categoriaActual = localStorage.getItem("categoria-actual");
-const preguntasCategoria = preguntas.filter(pregunta => pregunta.categoria === categoriaActual);
-
+// =======================
+// FUNCIONES DE PREGUNTAS
+// =======================
 function cargarSiguientePregunta(num){
-    //tomo los elementos donde se cargaran los datos de la pregunta
     const numPregunta = document.querySelector("#num-pregunta");
     const txtPregunta = document.querySelector("#txt-pregunta");
     const opcionA = document.querySelector("#a");
@@ -242,71 +262,61 @@ function cargarSiguientePregunta(num){
     opcionC.innerHTML = preguntasCategoria[num].opcionC;
     opcionD.innerHTML = preguntasCategoria[num].opcionD;
 
-    
+    // Reinicio el cronómetro
+    iniciarCronometro();
 
-    //Agrego un eventlistener a cada boton de respuesta
     const botonesRespuesta = document.querySelectorAll(".opcion");
-    //Quito los eventListen y las clases
     botonesRespuesta.forEach(opcion=>{
-        opcion.removeEventListener("click", (e)=>{});
-        opcion.classList.remove("correcta");
-        opcion.classList.remove("incorrecta");
-        opcion.classList.remove("no-events");
-    })
-
-    botonesRespuesta.forEach(opcion=>{
+        opcion.removeEventListener("click", agregarEventListenerBoton);
+        opcion.classList.remove("correcta","incorrecta","no-events");
         opcion.addEventListener("click", agregarEventListenerBoton);
-    })
+    });
 
     txtPuntaje.classList.remove("efecto");
 }
 
+// =======================
+// EVENTO BOTONES RESPUESTA
+// =======================
 function agregarEventListenerBoton(e){
-    console.log(e.currentTarget.id);
-    console.log(numPreguntaActual);
-    console.log(preguntas[numPreguntaActual].correcta);
-    //Controlo si la respuesta es correcta
     if(e.currentTarget.id === preguntasCategoria[numPreguntaActual].correcta){
         e.currentTarget.classList.add("correcta");
-        puntajeTotal = puntajeTotal + 100;
+        puntajeTotal += 100;
         txtPuntaje.innerHTML = puntajeTotal;
         localStorage.setItem("puntaje-total", puntajeTotal);
         txtPuntaje.classList.add("efecto");
-    }else{
+    } else {
         e.currentTarget.classList.add("incorrecta");
         const correcta = document.querySelector("#"+preguntasCategoria[numPreguntaActual].correcta);
         correcta.classList.add("correcta");
     }
-    //Agrego un eventlistener a cada boton de respuesta
-    const botonesRespuesta = document.querySelectorAll(".opcion");
-    //Quito los eventListen para que no pueda seguir haciendo clic
-    console.log(botonesRespuesta)
-    botonesRespuesta.forEach(opcion=>{
+
+    document.querySelectorAll(".opcion").forEach(opcion=>{
         opcion.classList.add("no-events");
-    })
+    });
+
+    clearInterval(intervaloCrono);
 }
 
+// =======================
+// INICIO PREGUNTA
+// =======================
 cargarSiguientePregunta(numPreguntaActual);
 
-//tomo el boton siguiente
-const btnSiguiente = document.querySelector("#siguiente")
+// =======================
+// SIGUIENTE PREGUNTA
+// =======================
+const btnSiguiente = document.querySelector("#siguiente");
 btnSiguiente.addEventListener("click",()=>{
     numPreguntaActual++;
-    if(numPreguntaActual<=4){
+    if(numPreguntaActual < preguntasCategoria.length){
         cargarSiguientePregunta(numPreguntaActual);
-    }
-    else{
+    } else {
         const categoriasJugadasLS = JSON.parse(localStorage.getItem("categorias-jugadas"));
-       
-        console.log(categoriasJugadasLS.length);
-        if(parseInt(categoriasJugadasLS.length) < 4){
-            //alert(categoriasJugadasLS.length);
+        if(categoriasJugadasLS.length < 4){
             location.href = "menu.html";
-        }else{
-            //lo mando a la pantalla final
+        } else {
             location.href = "final.html";
         }
-        
     }
-    
-})
+});
