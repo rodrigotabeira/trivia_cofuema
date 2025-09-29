@@ -238,15 +238,21 @@ header {
 
 .final .medalla {
     position: relative;
-    width: 100px;
+    width: auto; /* que ocupe todo el ancho necesario */
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centra imagen y nombre */
+}
+
+.final .medalla img {
+    width: 100px;
 }
 
 .final .medalla .nombre {
-    position: absolute;
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static; /* quitar absolute */
+    margin-top: 10px; /* separa del medalla */
+    font-size: 16px;
 }
 
 .final img {
