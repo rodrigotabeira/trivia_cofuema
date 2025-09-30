@@ -165,7 +165,7 @@ const preguntas = [
     {
         id: 17,
         categoria: "compromiso",
-        titulo: "¿Qué centros de educativos pueden participar de Compromiso COFUEMA?",
+        titulo: "¿Qué centros educativos pueden participar de Compromiso COFUEMA?",
         opcionA: "Centros de Enseñanza Públicos",
         opcionB: "Colegios Privados",
         opcionC: "Centros Educativos de Primera Infancia",
