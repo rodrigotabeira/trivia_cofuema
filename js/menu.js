@@ -55,3 +55,12 @@ function agregarEventListenerOpciones(){
     })
 }
 agregarEventListenerOpciones();
+
+// Obtener el botón por su id
+const boton = document.getElementById("siguiente");
+
+// Añadir un event listener al botón para el clic
+boton.addEventListener("click", function() {
+// Redirigir a final.html al hacer clic
+window.location.href = "final.html";
+});
