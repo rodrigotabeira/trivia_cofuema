@@ -19,6 +19,17 @@ totalNoAcertadas.innerHTML = incorrectas;
 btnComenar.addEventListener("click", () => {
     location.href = "index.html";
 });
-
-
+fetch('https://cofuema.uy/trivia/guardar_puntaje.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: 'nombre=' + encodeURIComponent(localStorage.getItem("nombre")) +
+          '&puntaje=' + encodeURIComponent(localStorage.getItem("puntaje-total"))
+})
+.then(response => response.text())
+.then(data => {
+    console.log('Respuesta del servidor:', data);
+})
+.catch(error => console.error('Error al guardar:', error));
 
