@@ -1,23 +1,31 @@
-//tomo los elementos del html
+// Tomo los elementos del html
 const nombre = document.querySelector("#nombre");
 const cedula = document.querySelector("#cedula");
 const btnComenzar = document.querySelector("#comenzar");
 
-//Agrego un event listener clic al botòn comenzar
-btnComenzar.addEventListener("click",()=>{
-    //seteo los valores del local storage que serán neceasarios en las otras pàginas
-    localStorage.setItem("nombre", nombre.value);
-    localStorage.setItem("cedula", cedula.value);
-    localStorage.setItem("puntaje-total",0);
-    localStorage.removeItem("categorias-jugadas");
-    
-    //lo redirijo a la parte del menú
-    location.href="menu.html";
-});
 // Limitar la cédula a 8 dígitos
 cedula.addEventListener('input', () => {
-    // Si la longitud de la cédula es mayor a 8, cortar el valor
     if (cedula.value.length > 8) {
         cedula.value = cedula.value.slice(0, 8);
     }
+});
+
+// Validación antes de comenzar
+btnComenzar.addEventListener("click", () => {
+    const nombreValor = nombre.value.trim();
+    const cedulaValor = cedula.value.trim();
+
+    if (nombreValor === "" || cedulaValor === "") {
+        alert("⚠️ Por favor, completa todos los campos antes de comenzar.");
+        return; // Detiene la ejecución si faltan datos
+    }
+
+    // Si los campos están completos, guardamos en localStorage
+    localStorage.setItem("nombre", nombreValor);
+    localStorage.setItem("cedula", cedulaValor);
+    localStorage.setItem("puntaje-total", 0);
+    localStorage.removeItem("categorias-jugadas");
+
+    // Redirigir al menú
+    location.href = "menu.html";
 });
